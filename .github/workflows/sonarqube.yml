@@ -1,0 +1,17 @@
+name: SonarQube
+
+on:
+  workflow_call:
+  
+jobs:
+  SonarQube:
+    name: Sonarqube Scan
+    runs-on: [self-hosted, linux, x64, backend, ci-tests, texas-dc, docker, small]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_URL }}
