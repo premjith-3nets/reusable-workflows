@@ -5,7 +5,7 @@ on:
   
 jobs:
   SonarQube:
-    runs-on: [self-hosted, linux, x64, backend, ci-tests, texas-dc, docker, small]
+    runs-on: [ubuntu-latest]
     name: Sonarqube Scan
     steps:
       - uses: actions/checkout@v2
